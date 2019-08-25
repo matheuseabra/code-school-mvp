@@ -1,0 +1,8 @@
+.vscode
+__pycache__
+env
+
+services/users/project/__pycache__
+services/users/project/env
+services/users/project/venv
+
