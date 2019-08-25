@@ -1,0 +1,5 @@
+CREATE DATABASE users_prod;
+
+CREATE DATABASE users_qa;
+
+CREATE DATABASE users_dev;
