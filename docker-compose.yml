@@ -17,8 +17,8 @@ services:
       - DATABASE_PROD_URL=postgres://postgres@users-db:5432/users_prod
       - DATABASE_QA_URL=postgres://postgres@users-db:5432/users_qa
       - DATABASE_DEV_URL=postgres://postgres@users-db:5432/users_dev
-    depends_on: 
-      - users-db
+    # depends_on: 
+    #   - users-db
   
   users-db:
     build: 
