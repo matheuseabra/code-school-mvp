@@ -20,4 +20,4 @@ class QAConfig:
 
 class ProductionConfig:
     """Production Env Configuration"""
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE__PROD_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_PROD_URL')

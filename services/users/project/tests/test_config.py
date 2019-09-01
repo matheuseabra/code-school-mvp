@@ -20,7 +20,7 @@ class TestDevelopmentConfig(TestCase):
     def test_app_is_development(self):
         self.assertFalse(current_app is None)
         self.assertTrue(
-            app.config['SQL_ALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_DEV_URL') # noqa
+            app.config['SQLALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_DEV_URL') # noqa
         )
 
 
@@ -32,7 +32,7 @@ class TestQAConfig(TestCase):
     def test_app_is_qa(self):
         self.assertTrue(app.config['TESTING'])
         self.assertTrue(
-            app.config['SQL_ALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_QA_URL') # noqa
+            app.config['SQLALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_QA_URL') # noqa
         )
 
 
@@ -44,7 +44,7 @@ class TestProductionConfig(TestCase):
     def test_app_is_production(self):
         self.assertFalse(app.config['TESTING'])
         self.assertTrue(
-            app.config['SQL_ALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_PROD_URL') # noqa
+            app.config['SQLALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_PROD_URL') # noqa
         )
 
 
