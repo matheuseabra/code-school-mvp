@@ -4,18 +4,18 @@ import os
 class BaseConfig:
     """Base Env Configuration"""
     TESTING = False
-    SQL_ALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class DevelopmentConfig:
     """Development Env Configuration"""
-    SQL_ALCHEMY_DATABASE_URI = os.environ.get('DATABASE_DEV_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_DEV_URL')
 
 
 class QAConfig:
     """QA Env Configuration"""
     TESTING = True
-    SQL_ALCHEMY_DATABASE_URI = os.environ.get('DATABASE_QA_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_QA_URL')
 
 
 class ProductionConfig:

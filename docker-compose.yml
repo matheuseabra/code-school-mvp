@@ -11,14 +11,13 @@ services:
     ports:
       - 5001:5000
     environment:
-      - FLASK_APP=project/__init__.py
       - FLASK_ENV=development
       - APP_SETTINGS=project.config.DevelopmentConfig
       - DATABASE_PROD_URL=postgres://postgres@users-db:5432/users_prod
       - DATABASE_QA_URL=postgres://postgres@users-db:5432/users_qa
       - DATABASE_DEV_URL=postgres://postgres@users-db:5432/users_dev
-    # depends_on: 
-    #   - users-db
+    depends_on: 
+      - users-db
   
   users-db:
     build: 
