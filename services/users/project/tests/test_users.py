@@ -7,14 +7,15 @@ from project.api.models import User
 from project.tests.base import BaseTestCase
 
 
+def add_user(username, email):
+    user = User(username=username, email=email)
+    db.session.add(user)
+    db.session.commit()
+    return user
+
+
 class TestUserService(BaseTestCase):
     """Tests for the Users Service."""
-
-    def add_user(username, email):
-        user = User(username=username, email=email)
-        db.session.add(user)
-        db.session.commit()
-        return user
 
     def test_users(self):
         """Test that the /ping route behaves correctly."""
@@ -84,9 +85,7 @@ class TestUserService(BaseTestCase):
 
     def test_single_user(self):
         """Test it returns a single user"""
-        user = User(username='bob', email='bob@email.com')
-        db.session.add(user)
-        db.session.commit()
+        user = add_user('test', 'test@email.com')
         with self.client:
             response = self.client.get(f'/users/{user.id}')
             data = json.loads(response.data.decode())
@@ -112,6 +111,17 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 404)
             self.assertIn('User does not exist', data['message'])
             self.assertIn('fail', data['status'])
+
+    def test_all_users(self):
+        """Ensure all users are returned"""
+        add_user('matt', 'matt@email.com')
+        add_user('bob', 'bob@email.com')
+        with self.client:
+            response = self.client.get('/users')
+            data = json.loads(response.data.decode())
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(len(data['data']['users']), 2)
+            self.assertIn('success', data['status'])
 
 
 if __name__ == '__main__':

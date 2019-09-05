@@ -10,8 +10,27 @@ users_blueprint = Blueprint('users', __name__)
 api = Api(users_blueprint)
 
 
+def to_json(self):
+    return {
+        'id': self.id,
+        'username': self.username,
+        'email': self.email,
+        'active': self.active
+    }
+
+
 class UsersList(Resource):
-    "Creates a user"
+    def get(self):
+        """Get all users"""
+        response_object = {
+           'status': 'success',
+           'data': {
+               'users': [user.to_json() for user in User.query.all()]
+           }
+        }
+        return response_object, 200
+
+    """Creates a user"""
     def post(self):
         post_data = request.get_json()
         response_object = {
