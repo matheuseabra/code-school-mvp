@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, render_template
 from flask_restful import Resource, Api
 from sqlalchemy import exc
 
@@ -6,11 +6,15 @@ from project import db
 
 from project.api.models import User
 
-users_blueprint = Blueprint('users', __name__)
+users_blueprint = Blueprint('users', __name__, template_folder='./templates')
 api = Api(users_blueprint)
 
-
 class UsersList(Resource):
+
+    @users_blueprint.route('/', methods=['GET'])
+    def index():
+        return render_template('index.html')
+
     def get(self):
         """Get all users"""
         response_object = {
@@ -87,7 +91,7 @@ class UsersPing(Resource):
             'message': "PONG"
         }
 
-
 api.add_resource(UsersPing, '/users/ping')
 api.add_resource(UsersList, '/users')
 api.add_resource(Users, '/users/<user_id>')
+
