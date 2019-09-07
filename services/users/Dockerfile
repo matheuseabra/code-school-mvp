@@ -15,5 +15,5 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 
 COPY . /usr/src/app
 
-CMD ["/usr/src/app/entrypoint.sh"]
+CMD python manage.py run -h 0.0.0.0
 

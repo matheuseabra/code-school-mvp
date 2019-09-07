@@ -10,15 +10,6 @@ users_blueprint = Blueprint('users', __name__)
 api = Api(users_blueprint)
 
 
-def to_json(self):
-    return {
-        'id': self.id,
-        'username': self.username,
-        'email': self.email,
-        'active': self.active
-    }
-
-
 class UsersList(Resource):
     def get(self):
         """Get all users"""

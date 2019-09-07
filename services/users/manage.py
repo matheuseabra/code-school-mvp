@@ -4,7 +4,7 @@ import unittest
 from flask.cli import FlaskGroup
 
 from project import create_app, db
-# from project.api.models import User
+from project.api.models import User
 
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
@@ -16,6 +16,12 @@ def recreate_db():
     db.create_all()
     db.session.commit()
 
+@cli.command('seed_db')
+def seed_db():
+    """Seeds the database."""
+    db.session.add(User(username='michael', email="hermanmu@gmail.com"))
+    db.session.add(User(username='michaelherman', email="michael@mherman.org"))
+    db.session.commit()
 
 @cli.command()
 def test():
