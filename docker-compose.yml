@@ -16,6 +16,7 @@ services:
       - DATABASE_PROD_URL=postgres://postgres:postgres@users-db:5432/users_prod
       - DATABASE_QA_URL=postgres://postgres:postgres@users-db:5432/users_qa
       - DATABASE_DEV_URL=postgres://postgres:postgres@users-db:5432/users_dev
+      - SECRET_KEY=mysupersecretkey
     depends_on: 
       - users-db
   
