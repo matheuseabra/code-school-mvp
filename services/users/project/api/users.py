@@ -15,10 +15,10 @@ class UsersList(Resource):
     @users_blueprint.route('/', methods=['GET', 'POST'])
     def index():
         if request.method == 'POST':
-            username = request.form('username')
-            email = request.form('email')
-            new_user = User(username=username, email=email)
-            db.session.add(new_user)
+            post_data = request.get_json(force=True)
+            username = post_data.get('username')
+            email = post_data.get('email')
+            db.session.add(User(username=username, email=email))
             db.sesssion.commit()
         users = User.query.all()
         return render_template('index.html', users=users)
@@ -35,7 +35,7 @@ class UsersList(Resource):
 
     """Creates a user"""
     def post(self):
-        post_data = request.get_json()
+        post_data = request.get_json(force=True)
         response_object = {
             'status': 'fail',
             'message': 'Invalid payload.'

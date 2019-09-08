@@ -1,22 +1,18 @@
 # CodingApp
 
-[![Build Status](https://travis-ci.org/matheuseabra/docker-flask-react.svg?branch=master)](https://travis-ci.org/matheuseabra/docker-flask-react)
+<!-- [![Build Status](https://travis-ci.org/matheuseabra/docker-flask-react.svg?branch=master)](https://travis-ci.org/matheuseabra/docker-flask-react) -->
 
-A educational coding app built using Flask, React and Docker using the micro-services architecture
+A educational coding app built using Flask, React and Docker using the micro-services architecture.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
 - Docker
 
-```
-Give examples
-```
-
-### Installing
+### Install
 
 Launch services by running:
 
@@ -25,26 +21,12 @@ docker-compose up
 
 ```
 
-And repeat
-
-```
-until finished
-```
-
 ## Running the tests
-
-Explain how to run the automated tests for this system
-
-### User service tests
 
 ```
 docker-compose exec users python manage.py test
 
 ```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
