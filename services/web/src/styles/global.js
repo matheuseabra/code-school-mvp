@@ -14,13 +14,18 @@ export const Body = styled.div`
 `;
 
 export const Container = styled.div`
-    padding: 20px;
-    max-width: 960px;
-    margin: 0 auto;
+    max-width: 1024px;
+    margin: 20px auto;
 `;
 
 export const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+`;
+
+export const FlexCenter = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;

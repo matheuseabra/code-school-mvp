@@ -7,7 +7,7 @@ import UsersList from './containers/UserList';
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 
-import { Body } from "./styles/global";
+import { Body, FlexCenter } from "./styles/global";
 
 export const App = () => {
 
@@ -17,9 +17,9 @@ export const App = () => {
       <Sidebar />
       <main className="mdl-layout__content">
         <section className="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-          <div className="page-content">
+          <FlexCenter>
             <SignUp />
-          </div>
+          </FlexCenter>
         </section>
         <section className="mdl-layout__tab-panel" id="scroll-tab-2">
           <div className="page-content">

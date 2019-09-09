@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from "../services/api";
 
 import Card from '../components/Card';
+import Active from '../components/Active';
 
 import { Grid, Container } from "../styles/global";
 
@@ -27,11 +28,12 @@ class UserList extends Component {
     return (
       <Container>
         <Grid>
-          {users.map(({ username, email }) => 
-            <Card>
+          {users.map(({ id, username, email, active }) => 
+            <Card key={id}>
               <div className="mdl-card__title">
-                <i class="material-icons">face</i>
+                <i className="material-icons">face</i>
                 {username}
+                <Active isActive={active} />
               </div>
               <div className="mdl-card__supporting-text">{email}</div>
             </Card>

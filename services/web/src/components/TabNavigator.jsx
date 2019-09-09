@@ -8,7 +8,7 @@ const TabNavigator = () => {
         Sign Up
       </a>
       <a href="#scroll-tab-2" className="mdl-layout__tab">
-        All Users
+        Users
       </a>
     </div>
   );
